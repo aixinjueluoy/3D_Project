@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     
     private CameraController cameraController;
     private CharacterController characterController;
+    private MeeleFighter meeleFighter;
     private Animator anim;
 
 
@@ -27,10 +28,17 @@ public class PlayerController : MonoBehaviour
         cameraController = Camera.main.GetComponent<CameraController>();
         anim = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        meeleFighter = GetComponent<MeeleFighter>();
     }
 
     private void Update()
     {
+        if(meeleFighter.InAction)
+        {
+            anim.SetFloat("moveAmount", 0);
+            return;
+        }
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         float moveAmount =Mathf.Clamp01(Mathf.Abs(h) + Mathf.Abs(v));
@@ -47,7 +55,6 @@ public class PlayerController : MonoBehaviour
         {
             fallSpeed += Physics.gravity.y * Time.deltaTime;
         }
-        Debug.Log(isGrounded);
         var velocity = moveDir * moveSpeed;
         velocity.y = fallSpeed;
 
