@@ -789,6 +789,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 1777590355019122}
+  attackDates:
+  - {fileID: 11400000, guid: 45c86c0abb2b19743b3c5db45b7fff8e, type: 2}
+  - {fileID: 11400000, guid: 8575bc3935d221d45880c852a7411d3b, type: 2}
+  - {fileID: 11400000, guid: 20556236a3974214da591ff337fa4f75, type: 2}
 --- !u!1 &1777590355019122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,6 +3732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 0}
+  attackDates: []
 --- !u!136 &6475506979270168977
 CapsuleCollider:
   m_ObjectHideFlags: 0
